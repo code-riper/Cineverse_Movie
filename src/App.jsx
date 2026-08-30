@@ -5,9 +5,9 @@ import SearchBar from "./components/SearchBar";
 import CategoryNav from "./components/CategoryNav";
 
 import Home from "./pages/Home";
-import Hollywood from "./pages/Hollywood";
-import Bollywood from "./pages/Bollywood";
-import Tollywood from "./pages/Tollywood";
+import Hollywood from "./Pages/Hollywood";
+import Bollywood from "./Pages/Bollywood";
+import Tollywood from "./Pages/Tollywood";
 
 import "./App.css";
 import SearchResults from "./Pages/SearchResults";
