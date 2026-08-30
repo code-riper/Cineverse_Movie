@@ -4,7 +4,7 @@ import Navbar from "./components/Navbar";
 import SearchBar from "./components/SearchBar";
 import CategoryNav from "./components/CategoryNav";
 
-import Home from "./pages/Home";
+import Home from "./Pages/Home";
 import Hollywood from "./Pages/Hollywood";
 import Bollywood from "./Pages/Bollywood";
 import Tollywood from "./Pages/Tollywood";
