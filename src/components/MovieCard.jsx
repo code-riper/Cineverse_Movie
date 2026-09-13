@@ -1,49 +1,49 @@
-import { FavoriteBorder, Star } from "@mui/icons-material";
+import { useNavigate } from "react-router-dom";
 
-export default function MovieCard({
-  title,
-  poster,
-  genre,
-  year,
-  rating,
-}) {
+export default function MovieCard({movie,genres}) {
+//   console.log("genres:", genres);
+// console.log("is array:", Array.isArray(genres));
+
+const navigate= useNavigate();
+
+  const imageUrl = movie.poster_path
+    ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+    : "/no-poster.jpg";
+
+    const genreNames = movie.genre_ids
+            ?.map((id)=>{
+              const genre = genres.find((genre)=> genre.id === id);
+              return genre?.name;
+            })
+            .filter(Boolean)
+            .join(" • ")
+
   return (
-    <div className="movie-card">
+    <div className="card movie-card"
+    onClick={()=>navigate(`/movie/${movie.id}`)}
+    style={{cursor:"pointer"}}
+    >
+      <img
+        src={imageUrl}
+        alt={movie.title}
+        className="card-img-top "
+      />
 
-      {/* Poster */}
-      <div className="position-relative">
-        <img
-          src={poster}
-          alt={title}
-          className="w-100 rounded-3 movie-poster"
-        />
+      <div className="card-body">
+        <h5 className="movie-title">{movie.title}</h5>
 
-        {/* Watchlist */}
-        <button className="btn btn-light rounded-circle position-absolute top-0 end-0 m-2 shadow-sm">
-          <FavoriteBorder fontSize="small" />
-        </button>
-      </div>
-
-      {/* Movie information */}
-      <div className="mt-2">
-
-        <h6 className="mb-1 fw-semibold text-truncate">
-          {title}
-        </h6>
-
-        <p className="mb-1 text-secondary small">
-          {genre} • {year}
+        <p className="movie-rating">
+          ⭐ {movie.vote_average.toFixed(1)}
         </p>
 
-        <div className="d-flex align-items-center gap-1">
-          <Star sx={{ fontSize: 17 }} />
-          <span className="small fw-semibold">
-            {rating}
-          </span>
-        </div>
+        <p className="movie-genres">
+          {genreNames}
+        </p>
 
+        <p className="movie-year mb-0">
+          {movie.release_date?.slice(0, 4)}
+        </p>
       </div>
-
     </div>
   );
 }

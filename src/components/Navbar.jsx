@@ -16,7 +16,7 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         <button
-          className="navbar-toggler border-0"
+          className="navbar-toggler border-0 mobile-menu-btn"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#cineVerseNavbar"
@@ -36,8 +36,10 @@ export default function Navbar() {
 
             <li className="nav-item">
               <NavLink
-                className="nav-link"
+                className={({isActive})=>
+                isActive ? "nav-link active-link fw-semibold" : "nav-link" }
                 to="/"
+                end
               >
                 Home
               </NavLink>
@@ -45,7 +47,8 @@ export default function Navbar() {
 
             <li className="nav-item">
               <NavLink
-                className="nav-link"
+                className={({isActive})=>
+                isActive ? "nav-link active-link fw-semibold" : "nav-link" }
                 to="/hollywood"
               >
                 Hollywood
@@ -54,7 +57,8 @@ export default function Navbar() {
 
             <li className="nav-item">
               <NavLink
-                className="nav-link"
+                className={({isActive})=>
+                isActive ? "nav-link active-link fw-semibold" : "nav-link" }
                 to="/bollywood"
               >
                 Bollywood
@@ -63,7 +67,8 @@ export default function Navbar() {
 
             <li className="nav-item">
               <NavLink
-                className="nav-link"
+                className={({isActive})=>
+                isActive ? "nav-link active-link fw-semibold" : "nav-link" }
                 to="/tollywood"
               >
                 Tollywood
@@ -73,7 +78,7 @@ export default function Navbar() {
           </ul>
 
           {/* Profile */}
-          <button className="btn border-0">
+          <button className="btn border-0 profile-btn">
             <AccountCircle fontSize="large" />
           </button>
 

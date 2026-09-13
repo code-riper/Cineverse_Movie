@@ -19,7 +19,7 @@ export default function SearchBar() {
   return (
     <div className="container my-4">
       <form
-        className="input-group"
+        className="input-group movie-search mx-auto"
         onSubmit={handleSearch}
       >
         <input
@@ -31,7 +31,7 @@ export default function SearchBar() {
         />
 
         <button
-          className="btn btn-dark"
+          className="btn btn-dark movie-search-btn"
           type="submit"
         >
           <Search />

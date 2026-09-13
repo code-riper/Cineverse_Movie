@@ -1,49 +1,83 @@
+import { useEffect, useState } from "react";
 import MovieSection from "../components/MovieSection";
-import movies from "../data/movies";
+import tmdb from "../api/tmdb";
 
 export default function Home() {
-  const trendingMovies = movies.filter(
-    (movie) => movie.trending
-  );
+  const [movies, setMovies] = useState([]);
+  const [loading, setLoading] =useState(true);
+  const [error, setError] =useState("");
+  const [genres, setGenres] = useState([]);
+  // const [hollywoodMovies, setHollywoodMovies] = useState([]);
 
-  const hollywoodMovies = movies.filter(
-    (movie) => movie.category === "Hollywood"
-  );
+  useEffect(() => {
+    tmdb
+      .get("/movie/popular")
+      .then((response) => {
+        setMovies(response.data.results);
+        console.log(response.data.results);
+      })
+      .catch((error) => {
+        console.log(error);
+        setError("Failed to load movies.");
+      })
+      .finally(()=>{
+        setLoading(false);
+      });
 
-  const bollywoodMovies = movies.filter(
-    (movie) => movie.category === "Bollywood"
-  );
+      tmdb
+      .get("/genre/movie/list")
+      .then((response)=>{
+        setGenres(response.data.genres)
+        console.log(response.data.genres)
+      })
+      .catch((error)=>{
+        console.log(error);
+      })
 
-  const tollywoodMovies = movies.filter(
-    (movie) => movie.category === "Tollywood"
-  );
+    // tmdb  
+    //   .get("/discover/movie",{
+    //     params:{
+    //       with_original_language: "en",
+    //       with_origin_country: "US",
+    //       sort_by: "popularity.desc",
+    //     },
+    //   })  
+    //   .then((response)=>{
+    //     setHollywoodMovies(response.data.results);
+    //   })
+    //   .catch((error)=>{
+    //     console.log(error);
+    //   })
+      
+  }, []);
+
+
+
+  if(loading){
+    return <p className="text-center mt-5">Loading movies...</p>;
+  }
+
+  if(error){
+    return <p className="text-center text-danger mt-5">{error}</p>;
+  }
+
+ 
 
   return (
     <main>
       <MovieSection
         title="Popular Movies"
-        movies={movies}
+        movies={movies.slice(0,10)}
+        genres={genres}
+        viewAllPath="/popular"
       />
-
+{/* 
       <MovieSection
-        title="Trending Movies"
-        movies={trendingMovies}
-      />
-
-      <MovieSection
-        title="Hollywood Movies"
+        title="Hollywood"
         movies={hollywoodMovies}
-      />
-
-      <MovieSection
-        title="Bollywood Movies"
-        movies={bollywoodMovies}
-      />
-
-      <MovieSection
-        title="Tollywood Movies"
-        movies={tollywoodMovies}
-      />
+        genres={genres}
+        viewAllPath="/hollywood"
+      /> */}
     </main>
   );
 }

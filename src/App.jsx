@@ -9,8 +9,10 @@ import Hollywood from "./Pages/Hollywood";
 import Bollywood from "./Pages/Bollywood";
 import Tollywood from "./Pages/Tollywood";
 
-import "./App.css";
+
 import SearchResults from "./Pages/SearchResults";
+import MovieDetails from "./Pages/MovieDetails";
+import PopularMovies from "./Pages/PopularMovies";
 
 function App() {
   return (
@@ -25,6 +27,8 @@ function App() {
         <Route path="/bollywood" element={<Bollywood />} />
         <Route path="/tollywood" element={<Tollywood />} />
         <Route path="/search" element={<SearchResults/>}/>
+        <Route path="/movie/:id" element={<MovieDetails/>}/>
+        <Route path="/popular" element={<PopularMovies/>}/>
       </Routes>
     </>
   );
