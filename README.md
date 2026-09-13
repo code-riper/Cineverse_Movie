@@ -200,8 +200,6 @@ This project demonstrates how React can be used with external APIs and modern UI
 
 ---
 
-## 📸 Project Preview
-
 ### CineVerse — Movie Discovery Platform
 
 A responsive movie-focused interface for discovering popular movies, exploring categories, searching for movies, and viewing detailed movie information.
