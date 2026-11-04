@@ -1,17 +1,12 @@
 import { useNavigate } from "react-router-dom";
 
 export default function MovieCard({movie,genres}) {
-//   console.log("genres:", genres);
-// console.log("is array:", Array.isArray(genres));
 
 const navigate= useNavigate();
 
-  const imageUrl = movie.poster_path
-    ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
-    : "/no-poster.jpg";
+  const imageUrl = movie.poster_path ? `https://image.tmdb.org/t/p/w500${movie.poster_path}` : "/no-poster.jpg";
 
-    const genreNames = movie.genre_ids
-            ?.map((id)=>{
+    const genreNames = movie.genre_ids?.map((id)=>{
               const genre = genres.find((genre)=> genre.id === id);
               return genre?.name;
             })
@@ -20,14 +15,10 @@ const navigate= useNavigate();
 
   return (
     <div className="card movie-card"
-    onClick={()=>navigate(`/movie/${movie.id}`)}
-    style={{cursor:"pointer"}}
-    >
-      <img
-        src={imageUrl}
-        alt={movie.title}
-        className="card-img-top "
-      />
+     onClick={()=>navigate(`/movie/${movie.id}`)}
+      style={{cursor:"pointer"}} >
+        
+      <img src={imageUrl} alt={movie.title} className="card-img-top "/>
 
       <div className="card-body">
         <h5 className="movie-title">{movie.title}</h5>

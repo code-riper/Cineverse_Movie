@@ -1,11 +1,4 @@
-// import CategoryPage from "../components/CategoryPage";
-
-// export default function Tollywood() {
-//   return <CategoryPage category="Tollywood" />;
-// }
-
 import { useEffect, useState } from "react";
-// import MovieSection from "../components/MovieSection";
 import tmdb from "../api/tmdb";
 import MovieGrid from "../components/MovieGrid";
 import { CircularProgress } from "@mui/material";
@@ -18,12 +11,9 @@ export default function Tollywood() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
-
-
   useEffect(() => {
     setLoading(true);
-    tmdb
-      .get("/discover/movie", {
+    tmdb.get("/discover/movie", {
         params: {
           with_original_language: "te",
           with_origin_country: "IN",
@@ -43,8 +33,7 @@ export default function Tollywood() {
         setLoading(false);
       });
 
-    tmdb
-      .get("/genre/movie/list")
+    tmdb.get("/genre/movie/list")
       .then((response) => {
         setGenres(response.data.genres);
       })
@@ -73,12 +62,6 @@ export default function Tollywood() {
 
   return (
     <main>
-      {/* <MovieSection
-        title="Tollywood"
-        movies={movies}
-        genres={genres}
-        viewAllPath="/tollywood"
-      /> */}
 
        <div className="container py-5">
               <h1 className="mb-4">Tollywood</h1>
@@ -89,11 +72,7 @@ export default function Tollywood() {
             </div>
       
               <div className="container d-flex justify-content-center align-items-center gap-3 mb-5">
-        <button
-          className="btn btn-primary"
-          onClick={() => setPage(page - 1)}
-          disabled={page === 1}
-        >
+        <button className="btn btn-primary" onClick={() => setPage(page - 1)} disabled={page === 1}>
           ← Previous
         </button>
       
@@ -101,11 +80,7 @@ export default function Tollywood() {
           Page {page} of {totalPages}
         </span>
       
-        <button
-          className="btn btn-primary"
-          onClick={() => setPage(page + 1)}
-          disabled={page === totalPages}
-        >
+        <button className="btn btn-primary" onClick={() => setPage(page + 1)} disabled={page === totalPages}>
           Next →
         </button>
       </div>

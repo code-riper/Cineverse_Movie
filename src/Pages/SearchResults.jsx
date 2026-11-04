@@ -1,6 +1,4 @@
 import { useSearchParams } from "react-router-dom";
-// import MovieSection from "../components/MovieSection";
-// import movies from "../data/movies";
 import { useEffect,useState } from "react";
 import tmdb from "../api/tmdb";
 import MovieGrid from "../components/MovieGrid";
@@ -30,8 +28,7 @@ export default function SearchResults() {
 
    
 
-    tmdb  
-      .get("/search/movie",{
+    tmdb.get("/search/movie",{
         params:{
           query:query,
           page:page,
@@ -49,8 +46,7 @@ export default function SearchResults() {
           setLoading(false);
         });
 
-        tmdb 
-          .get("/genre/movie/list")
+        tmdb.get("/genre/movie/list")
           .then((response)=>{
             setGenres(response.data.genres);
           })
@@ -63,10 +59,6 @@ export default function SearchResults() {
     setPage(1);
   },[query])
 
-  // const filteredMovies = movies.filter((movie) =>
-  //   movie.title.toLowerCase().includes(query.toLowerCase())
-  // );
-
   if (!query.trim()) {
   return (
     <div className="container text-center py-5">
@@ -78,7 +70,6 @@ export default function SearchResults() {
   );
 }
 
-
   if (loading) {
   return (
     <div className="page-state">
@@ -87,19 +78,6 @@ export default function SearchResults() {
     </div>
   );
 }
-
-
-
-// if(!query.trim()){
-//   return(
-//     <div className="container text-center py-5">
-//       <h3>Search for a movie</h3>
-//       <p className="text-secondary">
-//         Enter a movie to see search results.
-//       </p>
-//     </div>
-//   )
-// }
 
 if(error){
           return(
@@ -126,11 +104,7 @@ return (
         </div>
 
         <div className="container d-flex justify-content-center align-items-center gap-3 mb-5">
-          <button
-            className="btn btn-primary"
-            onClick={() => setPage(page - 1)}
-            disabled={page === 1}
-          >
+          <button className="btn btn-primary" onClick={() => setPage(page - 1)} disabled={page === 1}>
             ← Previous
           </button>
 
@@ -138,11 +112,7 @@ return (
             Page {page} of {totalPages}
           </span>
 
-          <button
-            className="btn btn-primary"
-            onClick={() => setPage(page + 1)}
-            disabled={page === totalPages}
-          >
+          <button className="btn btn-primary" onClick={() => setPage(page + 1)} disabled={page === totalPages}>
             Next →
           </button>
         </div>

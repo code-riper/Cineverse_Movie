@@ -18,22 +18,11 @@ export default function SearchBar() {
 
   return (
     <div className="container my-4">
-      <form
-        className="input-group movie-search mx-auto"
-        onSubmit={handleSearch}
-      >
-        <input
-          type="text"
-          className="form-control"
-          placeholder="Search movies, actors, genres..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
+      <form className="input-group movie-search mx-auto" onSubmit={handleSearch}>
+        <input type="text" className="form-control" placeholder="Search movies, actors, genres..." value={searchTerm}
+         onChange={(e) => setSearchTerm(e.target.value)}/>
 
-        <button
-          className="btn btn-dark movie-search-btn"
-          type="submit"
-        >
+        <button className="btn btn-dark movie-search-btn" type="submit">
           <Search />
         </button>
       </form>

@@ -7,11 +7,9 @@ export default function Home() {
   const [loading, setLoading] =useState(true);
   const [error, setError] =useState("");
   const [genres, setGenres] = useState([]);
-  // const [hollywoodMovies, setHollywoodMovies] = useState([]);
 
   useEffect(() => {
-    tmdb
-      .get("/movie/popular")
+    tmdb.get("/movie/popular")
       .then((response) => {
         setMovies(response.data.results);
         console.log(response.data.results);
@@ -24,8 +22,7 @@ export default function Home() {
         setLoading(false);
       });
 
-      tmdb
-      .get("/genre/movie/list")
+      tmdb.get("/genre/movie/list")
       .then((response)=>{
         setGenres(response.data.genres)
         console.log(response.data.genres)
@@ -33,21 +30,6 @@ export default function Home() {
       .catch((error)=>{
         console.log(error);
       })
-
-    // tmdb  
-    //   .get("/discover/movie",{
-    //     params:{
-    //       with_original_language: "en",
-    //       with_origin_country: "US",
-    //       sort_by: "popularity.desc",
-    //     },
-    //   })  
-    //   .then((response)=>{
-    //     setHollywoodMovies(response.data.results);
-    //   })
-    //   .catch((error)=>{
-    //     console.log(error);
-    //   })
       
   }, []);
 
@@ -61,8 +43,6 @@ export default function Home() {
     return <p className="text-center text-danger mt-5">{error}</p>;
   }
 
- 
-
   return (
     <main>
       <MovieSection
@@ -71,13 +51,6 @@ export default function Home() {
         genres={genres}
         viewAllPath="/popular"
       />
-{/* 
-      <MovieSection
-        title="Hollywood"
-        movies={hollywoodMovies}
-        genres={genres}
-        viewAllPath="/hollywood"
-      /> */}
     </main>
   );
 }

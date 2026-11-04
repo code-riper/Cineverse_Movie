@@ -9,7 +9,6 @@ import Hollywood from "./Pages/Hollywood";
 import Bollywood from "./Pages/Bollywood";
 import Tollywood from "./Pages/Tollywood";
 
-
 import SearchResults from "./Pages/SearchResults";
 import MovieDetails from "./Pages/MovieDetails";
 import PopularMovies from "./Pages/PopularMovies";

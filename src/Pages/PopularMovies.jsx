@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-// import MovieSection from "../components/MovieSection";
 import tmdb from "../api/tmdb";
 import { CircularProgress } from "@mui/material";
 import MovieGrid from "../components/MovieGrid";
@@ -16,8 +15,7 @@ export default function PopularMovies() {
 
     setLoading(true);
 
-    tmdb
-      .get("/movie/popular",{
+    tmdb.get("/movie/popular",{
         params:{
         page:page,
         }
@@ -79,27 +77,17 @@ export default function PopularMovies() {
 
     <div className="container d-flex justify-content-center align-items-center gap-3 mb-5">
 
-        <button
-         className="btn btn-primary"
-         onClick={()=>setPage(page-1)}
-         disabled={page===1}
-        >
+        <button className="btn btn-primary" onClick={()=>setPage(page-1)} disabled={page===1}>
             ← Previous
         </button>
 
         <span>Page {page} of {totalPages}</span>
 
-        <button
-         className="btn btn-primary"
-         onClick={()=>setPage(page+1)}
-         disabled={page === totalPages}
-        >
+        <button className="btn btn-primary" onClick={()=>setPage(page+1)} disabled={page === totalPages}>
              Next →
         </button>
 
     </div>
-
-
     </main>
   );
 }

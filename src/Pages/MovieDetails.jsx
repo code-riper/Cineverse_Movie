@@ -12,8 +12,7 @@ export default function MovieDetails() {
     console.log(id)
 
     useEffect(()=>{
-        tmdb    
-            .get(`/movie/${id}`)
+        tmdb.get(`/movie/${id}`)
             .then((response)=>{
                 setMovies(response.data)
             })
@@ -21,8 +20,7 @@ export default function MovieDetails() {
                 console.log(error);
             });
 
-            tmdb    
-                .get(`/movie/${id}/videos`)
+            tmdb.get(`/movie/${id}/videos`)
                 .then((response)=>{
                     setVideos(response.data.results);
                     
@@ -57,21 +55,13 @@ export default function MovieDetails() {
   return (
   <main className="container py-5">
     {backdropUrl && (
-      <img
-        src={backdropUrl}
-        alt={movie.title}
-        className="img-fluid rounded mb-4 movie-backdrop"
-      />
+      <img src={backdropUrl} alt={movie.title} className="img-fluid rounded mb-4 movie-backdrop"/>
     )}
     <div className="row g-4 movie-details">
       
       <div className="col-md-4">
        
-          <img
-            src={imageUrl}
-            alt={movie.title}
-            className="img-fluid rounded mb-4"
-          />
+          <img src={imageUrl} alt={movie.title} className="img-fluid rounded mb-4"/>
        
       </div>
 

@@ -7,10 +7,7 @@ export default function Navbar() {
       <div className="container-fluid px-4">
 
         {/* Logo */}
-        <NavLink
-          className="navbar-brand fw-bold fs-4"
-          to="/"
-        >
+        <NavLink className="navbar-brand fw-bold fs-4" to="/">
           🎬 CineVerse
         </NavLink>
 
@@ -22,55 +19,34 @@ export default function Navbar() {
           data-bs-target="#cineVerseNavbar"
           aria-controls="cineVerseNavbar"
           aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
+          aria-label="Toggle navigation">
           <Menu fontSize="large" />
         </button>
 
         {/* Navigation */}
-        <div
-          className="collapse navbar-collapse"
-          id="cineVerseNavbar"
-        >
+        <div className="collapse navbar-collapse" id="cineVerseNavbar">
           <ul className="navbar-nav mx-auto gap-lg-3">
 
             <li className="nav-item">
-              <NavLink
-                className={({isActive})=>
-                isActive ? "nav-link active-link fw-semibold" : "nav-link" }
-                to="/"
-                end
-              >
+              <NavLink className={({isActive})=> isActive ? "nav-link active-link fw-semibold" : "nav-link" } to="/" end>
                 Home
               </NavLink>
             </li>
 
             <li className="nav-item">
-              <NavLink
-                className={({isActive})=>
-                isActive ? "nav-link active-link fw-semibold" : "nav-link" }
-                to="/hollywood"
-              >
+              <NavLink className={({isActive})=> isActive ? "nav-link active-link fw-semibold" : "nav-link" } to="/hollywood">
                 Hollywood
               </NavLink>
             </li>
 
             <li className="nav-item">
-              <NavLink
-                className={({isActive})=>
-                isActive ? "nav-link active-link fw-semibold" : "nav-link" }
-                to="/bollywood"
-              >
+              <NavLink className={({isActive})=> isActive ? "nav-link active-link fw-semibold" : "nav-link" } to="/bollywood">
                 Bollywood
               </NavLink>
             </li>
 
             <li className="nav-item">
-              <NavLink
-                className={({isActive})=>
-                isActive ? "nav-link active-link fw-semibold" : "nav-link" }
-                to="/tollywood"
-              >
+              <NavLink className={({isActive})=> isActive ? "nav-link active-link fw-semibold" : "nav-link" } to="/tollywood">
                 Tollywood
               </NavLink>
             </li>

@@ -1,15 +1,7 @@
-// import CategoryPage from "../components/CategoryPage";
-
 import { useEffect, useState } from "react"
 import tmdb from "../api/tmdb";
-// import MovieSection from "../components/MovieSection";
 import MovieGrid from "../components/MovieGrid";
 import { CircularProgress } from "@mui/material";
-
-// export default function Hollywood() {
-//   return <CategoryPage category="Hollywood" />;
-// }
-
 
 export default function Hollywood() {
   
@@ -23,8 +15,7 @@ export default function Hollywood() {
   useEffect(()=>{
     setLoading(true);
 
-    tmdb  
-      .get("/discover/movie",{
+    tmdb.get("/discover/movie",{
         params:{
           with_original_language:"en",
           with_origin_country: "US",
@@ -45,8 +36,7 @@ export default function Hollywood() {
       });
 
 
-          tmdb
-            .get("/genre/movie/list")
+          tmdb.get("/genre/movie/list")
             .then((response) => {
               setGenres(response.data.genres);
             })
@@ -76,12 +66,6 @@ export default function Hollywood() {
           
   return(
     <main>
-      {/* <MovieSection
-      title="Hollywood"
-      movies={movies}
-      genres={genres}
-      viewAllPath="/hollywood"
-      /> */}
 
       <div className="container py-4">
         <h1 className="h3 mb-4">Hollywood</h1>
@@ -92,11 +76,7 @@ export default function Hollywood() {
       </div>
 
          <div className="container d-flex justify-content-center align-items-center gap-3 mb-5">
-  <button
-    className="btn btn-primary"
-    onClick={() => setPage(page - 1)}
-    disabled={page === 1}
-  >
+  <button className="btn btn-primary" onClick={() => setPage(page - 1)} disabled={page === 1}>
     ← Previous
   </button>
 
@@ -104,11 +84,7 @@ export default function Hollywood() {
     Page {page} of {totalPages}
   </span>
 
-  <button
-    className="btn btn-primary"
-    onClick={() => setPage(page + 1)}
-    disabled={page === totalPages}
-  >
+  <button className="btn btn-primary" onClick={() => setPage(page + 1)} disabled={page === totalPages}>
     Next →
   </button>
 </div>
