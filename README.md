@@ -6,16 +6,6 @@ The application follows a **component-based React architecture** with reusable c
 
 ---
 
-## 🌐 Live Demo
-
-**Live Application:**
-[https://cineverse-movies-527514.netlify.app/](https://cineverse-movies-527514.netlify.app/)
-
-**GitHub Repository:**
-[https://github.com/code-riper/Cineverse_Movie](https://github.com/code-riper/Cineverse_Movie)
-
----
-
 ## ✨ Features
 
 * 🎬 Browse and explore popular movies
@@ -65,58 +55,7 @@ The application follows a **component-based React architecture** with reusable c
 
 ---
 
-## 🏗️ Project Structure
-
-```text
-Cineverse_Movie/
-│
-├── public/
-│
-├── src/
-│   ├── api/
-│   │   └── tmdb.js
-│   │
-│   ├── assets/
-│   ├── components/
-│   ├── Pages/
-│   │
-│   ├── App.jsx
-│   ├── main.jsx
-│   └── index.css
-│
-├── .gitignore
-├── index.html
-├── package.json
-├── vite.config.js
-└── README.md
-```
-
 The project follows a structured React architecture where reusable components, pages, API configuration, assets, and styling are organized separately for better maintainability and scalability.
-
----
-
-## 🔄 Application Flow
-
-```text
-                         CineVerse
-                             │
-                             ▼
-                            Home
-                             │
-              ┌──────────────┼──────────────┐
-              │              │              │
-              ▼              ▼              ▼
-       Popular Movies   Movie Categories   Search
-                             │              │
-                    ┌────────┼────────┐     │
-                    ▼        ▼        ▼     │
-                Hollywood Bollywood Tollywood
-                    │        │        │     │
-                    └────────┴────────┴─────┘
-                             │
-                             ▼
-                       Movie Details
-```
 
 ---
 
@@ -171,32 +110,6 @@ CineVerse is designed to provide a responsive experience across different screen
 Bootstrap 5's responsive grid system and utility classes are combined with custom CSS and Material UI components to create a responsive and user-friendly interface.
 
 Movie sections use responsive layouts, with horizontal scrolling on larger screens and grid layouts on smaller screens.
----
-
-**Live Application:**
-[https://cineverse-movies-527514.netlify.app/](https://cineverse-movies-527514.netlify.app/)
-
----
-
-## 🎯 Project Purpose
-
-The main purpose of CineVerse is to build a practical, real-world React application while implementing important frontend development concepts such as:
-
-* React component architecture
-* REST API integration
-* Dynamic data fetching
-* Axios HTTP requests
-* Client-side routing
-* Dynamic routes
-* Movie search functionality
-* Pagination
-* Responsive UI development
-* Reusable components
-* Loading and error state handling
-* Structured project organization
-* Integration of modern frontend libraries
-
-This project demonstrates how React can be used with external APIs and modern UI libraries to build a responsive, data-driven web application.
 
 ---
 
@@ -207,11 +120,6 @@ A responsive movie-focused interface for discovering popular movies, exploring c
 ## 👨‍💻 Author
 
 ### Faisal Salmani
-
-**GitHub:**
-[https://github.com/code-riper](https://github.com/code-riper)
-
----
 
 ## ⭐ Support
 
