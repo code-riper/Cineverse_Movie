@@ -10,7 +10,7 @@ The application follows a **component-based React architecture** with reusable c
 
 * 🎬 Browse and explore popular movies
 * 🌎 Explore Hollywood movies
-* 🇮🇳 Browse Bollywood movies
+* 🎥 Browse Bollywood movies
 * 🎥 Explore Tollywood movies
 * 🔎 Search movies dynamically
 * 📄 View detailed movie information
